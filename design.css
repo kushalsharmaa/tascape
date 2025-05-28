@@ -1,0 +1,130 @@
+*,*::before,*::after{
+    margin:0%;
+    padding:0%;
+   box-sizing: border-box;
+}
+ html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+}
+:root {
+  --color-bg:         #18181B;    /* Deep slate black */
+  --color-surface:    #232326;    /* Slightly lifted panels */
+  --color-text:       #F3F4F6;    /* Soft white text */
+  --color-primary:    #A78BFA;    /* Lightened violet */
+  --color-secondary:  #34D399;    /* Fresh emerald */
+  --color-accent:     #FB7185;    /* Rose highlight */
+  --color-neutral:    #4B5563;    /* Muted neutral lines, grays */
+}
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+#navbar{
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-secondary);
+}
+#navbar ul{
+  list-style: none;
+  display: flex;
+}
+nav a{
+display: flex;
+text-decoration: none;
+color: var(--color-secondary);
+padding: 1em 2em;
+}
+nav .Get-Started-li{
+  margin-left: auto;
+}
+nav a:hover{
+  background-color: var(--color-neutral);
+}
+nav a.active-link{
+  border-bottom: 2px solid var(--color-neutral);
+}
+
+nav a.accent-link{
+  background-color: var(--color-primary);
+}
+#open_sidebar_button{
+  display: none;
+  background: none;
+  border: none;
+  padding: 1em;
+  margin-left: auto;
+  cursor: pointer;
+  background-color:var(--color-neutral);
+}
+#close_sidebar_button {
+  display: none;
+  background: none;
+  border: none;
+  padding: 1em;
+  margin-left: auto;
+  cursor: pointer;
+  background-color: var(--color-neutral);
+}
+#overlay{
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  inset:0;
+  z-index: 9;
+  display:none;
+
+}
+@media screen and (max-width: 1015px) {
+  #open_sidebar_button, #close_sidebar_button{
+    display:block;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: min(15em, 100%);
+    z-index: 10;
+    background-color: var(--color-surface);
+    border-left: 1px solid var(--color-neutral);
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+    transition: right 300ms ease-out;
+  }
+  nav.show{
+    right: 0;
+  }
+
+nav.show ~ #overlay{
+  display:block;
+}
+
+  nav ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  nav .Get-Started-li{
+  margin-left:none;
+  }
+
+  nav a {
+    width: 100%;
+    padding: 1em 2.5em;
+    display: block;
+  }
+
+  nav a.active-link {
+    border-bottom: none;
+    background-color: var(--color-bg);
+  }
+
+  nav .Get-Started-li {
+    margin-left: unset;
+  }
+}
+
+
